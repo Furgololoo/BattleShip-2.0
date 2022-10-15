@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>view/LoginView.qml</file>
+        <file>view/main.qml</file>
+        <file>view/GameView.qml</file>
+        <file>script/Font.js</file>
+        <file>script/Color.js</file>
+    </qresource>
+</RCC>
