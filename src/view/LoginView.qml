@@ -39,8 +39,8 @@ Item {
             placeholderText: qsTr("Name")
 
             font: Fonts.arial14()
-            Text.horizontalAlignment: Text.AlignHCenter
-            Text.verticalAlignment: Text.AlignVCenter
+//            Text.horizontalAlignment: Text.AlignHCenter
+//            Text.verticalAlignment: Text.AlignVCenter
 
             background: Rectangle {
                 color: "#FFFFFF"
