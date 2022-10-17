@@ -5,6 +5,10 @@
         <file>view/GameView.qml</file>
         <file>script/Font.js</file>
         <file>script/Color.js</file>
+<<<<<<< HEAD
         <file>view/components/Board.qml</file>
+=======
+        <file>script/LoginValidation.js</file>
+>>>>>>> 08af45d2c99360dcdf8b78daa3293c0f379f459c
     </qresource>
 </RCC>
