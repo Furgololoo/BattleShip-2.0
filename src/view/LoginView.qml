@@ -3,9 +3,14 @@ import QtQuick.Controls 2.5
 
 import "qrc:/script/Color.js" as Colors
 import "qrc:/script/Font.js" as Fonts
+import "qrc:/script/LoginValidation.js" as LoginValidation
 
 Item {
     anchors.fill: parent
+
+   Component.onCompleted: {
+       LoginValidation.setupLoginView(nameField, ipAddressField, portField, goBtn)
+   }
 
     Item {
         id: loginText
@@ -28,58 +33,121 @@ Item {
     Item {
         id: name
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: loginText.top
-        anchors.topMargin: parent.height * 0.15
+        anchors.top: loginText.bottom
+        anchors.topMargin: parent.height * 0.05
         height: 50
         width: 200
 
         TextField {
             id: nameField
+
+            property color nameBG: "#FFFFFF"
+            property real nameOpacity: 1.0
+
+            onTextChanged: LoginValidation.checkValidationInNameField(nameField.text)
+
             anchors.fill: parent
             placeholderText: qsTr("Name")
 
             font: Fonts.arial14()
-            Text.horizontalAlignment: Text.AlignHCenter
-            Text.verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: TextInput.AlignHCenter
 
             background: Rectangle {
-                color: "#FFFFFF"
+                color: nameField.nameBG
+                opacity: nameField.nameOpacity
                 border.width: 3
                 border.color: Colors.blue()
             }
         }
-
-//        Rectangle {
-//            anchors.fill: parent
-//            color: Colors.blue()
-//        }
     }
 
     Item {
         id: ipAddress
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: name.top
-        anchors.topMargin: parent.height * 0.15
+        anchors.top: name.bottom
+        anchors.topMargin: parent.height * 0.05
         height: 50
         width: 225
 
-        Rectangle {
+        TextField {
+            id: ipAddressField
+
+            property color ipBG: "#FFFFFF"
+            property real ipOpacity: 1.0
+
+            onTextChanged: LoginValidation.checkValidationInIPField(ipAddress.text)
+
             anchors.fill: parent
-            color: Colors.red()
+            placeholderText: qsTr("Server IP Address")
+
+            font: Fonts.arial14()
+            horizontalAlignment: TextInput.AlignHCenter
+
+            background: Rectangle {
+                color: ipAddressField.ipBG
+                opacity: ipAddressField.ipOpacity
+                border.width: 3
+                border.color: Colors.red()
+            }
         }
     }
 
     Item {
         id: port
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: ipAddress.top
-        anchors.topMargin: parent.height * 0.15
+        anchors.top: ipAddress.bottom
+        anchors.topMargin: parent.height * 0.05
         height: 50
         width: 250
 
-        Rectangle {
+        TextField {
+            id: portField
+
+            property color portBG: "#FFFFFF"
+            property real portOpacity: 1.0
+
+            onTextChanged: LoginValidation.checkValidationInPortField(portField.text)
+
             anchors.fill: parent
-            color: Colors.yellow()
+            placeholderText: qsTr("Server port")
+
+            font: Fonts.arial14()
+            horizontalAlignment: TextInput.AlignHCenter
+
+            background: Rectangle {
+                color: portField.portBG
+                opacity: portField.portOpacity
+                border.width: 3
+                border.color: Colors.yellow()
+            }
+        }
+    }
+
+    Item {
+        id: button
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: port.bottom
+        anchors.topMargin: parent.height * 0.05
+        height: 50
+        width: 275
+
+        Button {
+            id: goBtn
+
+            property color buttonBG: "#FFFFFF"
+            property real buttonOpacity: 1.0
+
+            anchors.fill: parent
+            text: qsTr("Go!")
+
+            font: Fonts.arial14()
+
+            background: Rectangle {
+                color: goBtn.buttonBG
+                opacity: goBtn.buttonOpacity
+                border.width: 3
+                border.color: Colors.green()
+            }
         }
     }
 

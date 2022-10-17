@@ -12,12 +12,16 @@ function yellow() {
     return "#F1C40F"
 }
 
+function purple() {
+    return "#884EA0"
+}
+
 function orange() {
-    return ""
+    return "#DC7633"
 }
 
 function green() {
-    return ""
+    return "#28B463"
 }
 
 function dark() {
@@ -25,9 +29,9 @@ function dark() {
 }
 
 function gray() {
-    return ""
+    return "#D0D3D4"
 }
 
 function light() {
-    return ""
+    return "#7B7D7D"
 }
