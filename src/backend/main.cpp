@@ -1,5 +1,10 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QQmlEngine>
+
+#include "shipbutton.h"
+#include "Managers/buttonmanager.h"
 
 
 int main(int argc, char *argv[])
@@ -9,7 +14,13 @@ int main(int argc, char *argv[])
 #endif
     QGuiApplication app(argc, argv);
 
+    qmlRegisterType<ShipButton>("Custom", 1, 0, "ShipButton");
+
     QQmlApplicationEngine engine;
+
+    ButtonManager buttonManager;
+    engine.rootContext()->setContextProperty("ButtonManager", &buttonManager);
+
     const QUrl url(QStringLiteral("qrc:/view/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {

@@ -50,12 +50,9 @@ Item {
             placeholderText: qsTr("Name")
 
             font: Fonts.arial14()
-<<<<<<< HEAD
 //            Text.horizontalAlignment: Text.AlignHCenter
 //            Text.verticalAlignment: Text.AlignVCenter
-=======
             horizontalAlignment: TextInput.AlignHCenter
->>>>>>> 08af45d2c99360dcdf8b78daa3293c0f379f459c
 
             background: Rectangle {
                 color: nameField.nameBG

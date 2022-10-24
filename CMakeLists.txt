@@ -16,6 +16,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
 
 set(PROJECT_SOURCES
         src/backend/main.cpp
+        src/backend/shipbutton.h src/backend/shipbutton.cpp
+        src/backend/Managers/buttonmanager.h src/backend/Managers/buttonmanager.cpp
         src/qml.qrc
 )
 
